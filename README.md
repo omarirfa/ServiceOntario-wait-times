@@ -1,53 +1,25 @@
 # ServiceOntario-wait-times
-Due to the COVID-19 pandemic, [unemployment] level is on the rise. However, even during these troubling times, the amount of fake job postings have also increased in [Canada] and in [North America] as a whole. This project aims to create a classification model to help users identify fraudulent job postings.   
+ServiceOntario releases their wait times and updates it quarterly. I analyzed one of their [datasets](https://data.ontario.ca/dataset/serviceontario-wait-times-and-call-volumes-contact-centres) which shows wait times and call volumes for contact centres. This dataset contains entries in terms of business queries, calls handled, average wait time, year and month. The data spans from 2016 to 2020 at the moment. To analyze the dataset I utilized [Power BI](https://powerbi.microsoft.com/en-us/) which is a business analytics tool that allows to create interactive visualizations.  
+
+Unfortunately, the dashboard may become unavailable since Power BI requires an organizational account. I have attached both Power BI and a pdf version of the report in my [Github.](https://github.com/omarirfa/ServiceOntario-wait-times) which you can check out.
+
 
 ### Objectives
-- Devise a method to combine all the useful columns.
-- Create a classification model to differentiate between fraudulent and real jobs.
-- Produce insights on how fake jobs differ from real job postings.
-
-
-
-### Dataset
-The [dataset] is available on the ServiceOntario website. It contains 18K job postings where 866 are fake job postings and 17014 are real job postings. In the fraudulent column, 0 represents real job postings while, 1 represents fake job postings.
+*   Devise a method to establish month and year relationship with the Power BI date format.
+*   Create a model to show how ServiceOntario has catered to different business through out the years in terms of wait time and calls handled.
+*   Produce insights on how average wait times varied for various businesses.
 
 
 ### Method
-Method can be divided into three stages:
-- Preprocessing: NaN values were replaced with blanks. Since we wanted to evaluate the different aspects of a job posting, a new column was created which consists of the title, location, company profile, description, requirements and benefits. Since it is an imbalanced dataset, undersampling was utilized for the majority class (real jobs) to balance out against the minority class (fake jobs). A train and test split was done on the texts to create training and testing sets.
-  - Since machine learning models can only process numerical data, we have to convert the input text. To do so Term frequency-inverse document frequency (TFIDF) vectorizer was utilized to create training and testing vectors. Countvectorizer was not used since it only counts the number of times a word appears in the document which will skew the results. While, TFIDF sees the overall document weightage of each word.
-
-- Models: Multinomial Naive-Bayes, RandomForest, Logistic Regression and Support Vector machine were utilized to evaluate the set. F1 score was utilized to determine the efficiency of each model.
-
-- Visualisation: Confusion matrix were made for each model to show how effectively did it classify. Graphs were made for required experience, function, industry, employment type, countries, and required education. NA was replaced for NaN values for better visualisation.
-
-Please refer to the results folder for insights and metrics utilized.
+The excel file was loaded in and transformed using Power Query. First thing to do was to remove whitespaces, trim the data and change the data type for each column to their specific data types such as text, whole number etc. An issue that I addressed in Power Query was to make a date and month order column. Power BI organizes months in ascending order which makes the visualizations look odd. There are several ways to fix this but I decided to use this way, I made a new column using the calendar function and changed its data type to date. Then made a second column called monthorder which I then to set to as wholenumber. This column chronologically assigned numerical values to their respective months i.e. January == 1, February == 2 etc. Finally, to implement these changes we just had to sort the columns in our report tab by monthorder. Another way of doing this is by just using the calendar function in Power Query to create a column and assigning the calendar as a relationship to the month.
 
 ### Improvements
-This project can be improved in several ways, in terms of data preprocessing, data visualisation and models.
+*   Can make predictions using Azures machine learning integration which is provided in Power Query.
+*   Further plots could be made using R or Python scripts.
+*   More relationships can be made with other applicable datasets from the ServiceOntario website.
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-
-   [Seaborn]: <https://seaborn.pydata.org/>
-   [Pandas]: <https://pandas.pydata.org/>
-   [NumPy]: <https://numpy.org/>
-   [Scikit-learn]: <https://scikit-learn.org/>
-   [Matplotlib]: <https://matplotlib.org/>
-   [Bokeh]: <https://docs.bokeh.org/en/latest/index.html>
-   [Plotly]: <https://plotly.com/> 
-   [Nlppreprocess]: <https://github.com/gaganmanku96/nlppreprocess>
-   [Gensim]: <https://pypi.org/project/gensim/>
-   [SpaCy]: <https://spacy.io/>
-   [NLTK]: <https://www.nltk.org/>
-   [Imbalanced-learn]: <https://imbalanced-learn.readthedocs.io/en/stable/>
-   [techniques]:<https://towardsdatascience.com/data-augmentation-in-nlp-2801a34dfc28>
-   [dataset]:<https://data.ontario.ca/dataset/serviceontario-wait-times-and-call-volumes-contact-centres>
-   [North America]:<https://www.forbes.com/sites/ashleystahl/2020/05/11/job-hunting-scams-amid-covid-19-pandemic/#694498c3c57d>
-   [Canada]:<https://globalnews.ca/news/7046534/scammers-target-online-job-seekers-during-covid-19-pandemic/>
-   [unemployment]:<https://www.nytimes.com/interactive/2020/05/08/business/economy/april-jobs-report.html>
-   
-   
    
   
