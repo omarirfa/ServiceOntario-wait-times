@@ -1,7 +1,7 @@
 # ServiceOntario-wait-times
 ServiceOntario releases their wait times and updates it quarterly. I analyzed one of their [datasets](https://data.ontario.ca/dataset/serviceontario-wait-times-and-call-volumes-contact-centres) which shows wait times and call volumes for contact centres. This dataset contains entries in terms of business queries, calls handled, average wait time, year and month. The data spans from 2016 to 2020 at the moment. To analyze the dataset I utilized [Power BI](https://powerbi.microsoft.com/en-us/) which is a business analytics tool that allows to create interactive visualizations.  
 
-Unfortunately, the dashboard may become unavailable since Power BI requires an organizational account. I have attached both Power BI and a pdf version of the report in my [Github.](https://github.com/omarirfa/ServiceOntario-wait-times) which you can check out.
+Unfortunately, the dashboard may become unavailable since Power BI requires an organizational account. I have attached both Power BI and a pdf version of the report in my Github which you can check out.
 
 
 ### Objectives
